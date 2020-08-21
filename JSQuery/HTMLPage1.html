@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function prepareQueryString(array) {
+            var result = "";
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].enable == true) {
+                    result == "" ? result = "?" : result += "&";
+                    result += array[i].name + "=" + array[i].value
+                }
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+
+        function getArray()
+        {
+            return [{ enable: true, name: "id", value: 123 }, { enable: false, name: "name", value: undefined }, { enable: true, name: "type", value: "query" }]
+        }
+
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="prepareQueryString(getArray())">Show Output</button>
+    <h1 id="result"></h1>
+</body>
+</html>
